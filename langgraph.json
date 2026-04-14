@@ -1,0 +1,6 @@
+{
+  "graphs": {
+    "audit_pipeline": "./src/graph/pipeline.ts:buildAuditPipeline"
+  },
+  "env": ".env"
+}
