@@ -3,12 +3,6 @@
 > **DynaAudit: Exploit-Driven Dynamic RAG for Emerging Smart Contract Vulnerability Detection**
 >
 > Extending [LLM-SmartAudit](https://ieeexplore.ieee.org/document/11121619) (IEEE Transactions on Software Engineering, 2025) with Continuous On-Chain Threat Intelligence
-
-[
-[
-[
-[
-
 ***
 
 ## Overview
