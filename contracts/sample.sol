@@ -14,7 +14,6 @@ contract VulnerableVault {
         balances[msg.sender] += msg.value;
     }
 
-    // Reentrancy vulnerability — external call before state update
     function withdraw(uint256 amount) public {
         require(balances[msg.sender] >= amount, "Insufficient balance");
         (bool success, ) = msg.sender.call{value: amount}("");
@@ -22,7 +21,6 @@ contract VulnerableVault {
         balances[msg.sender] -= amount; // state updated AFTER external call
     }
 
-    // Missing access control
     function drainAll(address payable to) public {
         to.transfer(address(this).balance);
     }

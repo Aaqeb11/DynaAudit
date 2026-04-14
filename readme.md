@@ -248,3 +248,56 @@ This project extends the following work:
 - **LLM-SmartAudit**: *Advanced Smart Contract Vulnerability Detection via LLM-Powered Multi-Agent System* — IEEE Transactions on Software Engineering, 2025. [Paper](https://ieeexplore.ieee.org/document/11121619) · [GitHub](https://github.com/LLMAudit/LLMSmartAuditTool)
 
 ***
+
+## Contributing
+
+Contributions are welcome! DynaAudit is a research project — if you're working on smart contract security, LLM-based auditing, or dynamic RAG systems, there are many ways to contribute.
+
+### Getting Started
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feat/your-feature-name`
+3. Make your changes and commit: `git commit -m "feat: describe your change"`
+4. Push to your branch: `git push origin feat/your-feature-name`
+5. Open a Pull Request against `main`
+
+### Commit Convention
+
+This project follows [Conventional Commits](https://www.conventionalcommits.org/):
+
+| Prefix | When to use |
+|---|---|
+| `feat:` | New feature or node |
+| `fix:` | Bug fix |
+| `refactor:` | Code change that isn't a fix or feature |
+| `docs:` | README or documentation only |
+| `test:` | Adding or updating tests |
+| `chore:` | Build process, deps, config |
+
+### Areas Open for Contribution
+
+- **Real RAG pipeline** — replace mock retriever with live pgvector + Etherscan/Forta ingestion
+- **Slither & Mythril integration** — replace mock static analyzer with real subprocess calls
+- **Diff Detector node** — pattern matching against post-training exploits
+- **New vulnerability scenarios** — extend the targeted analysis scenarios beyond current coverage
+- **Additional chains** — support for non-EVM chains (Solana, Move-based contracts)
+- **Report formatter** — richer HTML/PDF output beyond JSON + Markdown
+- **NestJS API layer** — wrap the pipeline as a REST API
+
+### Code Style
+
+- TypeScript strict mode — no `any` types
+- All new nodes must follow the `(state: AuditStateType) => Promise<Partial<AuditStateType>>` signature
+- Zod schemas required for all new structured outputs
+- Keep LLM calls isolated to node functions — no LLM calls outside `nodes.ts`
+
+### Issues
+
+For bugs, please include:
+- The `.sol` contract that caused the issue (redact if sensitive)
+- The full error output
+- Your Node.js and Bun versions
+
+---
+
+*Built as part of a research project at BITS Pilani, extending [LLM-SmartAudit](https://ieeexplore.ieee.org/document/11121619) (IEEE TSE, 2025).*
